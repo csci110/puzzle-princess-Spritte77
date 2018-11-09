@@ -28,15 +28,23 @@ class PrincessMarker extends Marker {
         this.dragging = false;
         let row = Math.floor((this.y - this.board.y)/this.board.squareSize);
         let col = Math.floor((this.x - this.board.x)/this.board.squareSize); 
-        if (this.row < 0 || this.row > 2) {
+        if (this.row < 0) {
             this.x = this.startX;
             this.y = this.startY;
         }
-        if (this.col < 0 || this.col > 2){
+        if (this.row > 2) {
             this.x = this.startX;
             this.y = this.startY;
         }
-      return;  
+        if (this.col < 0) {
+            this.x = this.startX;
+            this.y = this.startY;
+        }
+        if (this.col > 2) {
+            this.x = this.startX;
+            this.y = this.startY;
+        }
+      return true;  
     }
     handleGameLoop() {
         if (this.dragging === true) {
