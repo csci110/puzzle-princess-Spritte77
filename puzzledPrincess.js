@@ -40,8 +40,8 @@ class PrincessMarker extends Marker {
         this.dragging = false;
         let row = Math.floor((this.y - this.board.y) / this.board.squareSize);
         let col = Math.floor((this.x - this.board.x) / this.board.squareSize);
-        if (row < 0 || row > 2 || col < 0 || col > 2 || 
-        this.board.dataModel[row][col] !== this.board.emptySquareSymbol) {
+        if (row < 0 || row > 2 || col < 0 || col > 2 ||
+            this.board.dataModel[row][col] !== this.board.emptySquareSymbol) {
             this.x = this.startX;
             this.y = this.startY;
             return;
@@ -70,6 +70,33 @@ class StrangerMarker extends Marker {
             row = Math.round(Math.random() * (this.board.size - 1));
             col = Math.round(Math.random() * (this.board.size - 1));
         } while (this.board.dataModel[row][col] !== this.board.emptySquareSymbol);
+        /*let foundMove = this.findWinningMove();
+        if (!foundMove) {
+            foundMove = this.findWinningMove(true);
+        }
+        if (!foundMove) {
+            foundMove = this.findForkingMove();
+        }
+        if (!foundMove) {
+            foundMove = this.findForkingMove(true);
+        }
+        if (!foundMove) {
+            foundMove = this.findCenterMove();
+        }
+        if (!foundMove) {
+            foundMove = this.findOppositeCornerMove();
+        }
+        if (!foundMove) {
+            foundMove = this.findAnyCornerMove();
+        }
+        if (!foundMove) {
+            foundMove = this.findAnySideMove();
+        }
+        if (!foundMove) {
+            // Mark a random empty square.
+        }
+        if (!foundMove) throw new Error('Failed to find a move.');
+        this.board.takeTurns();*/
         this.board.dataModel[row][col] = this.squareSymbol;
         this.playInSquare(row, col);
         this.board.takeTurns();
@@ -93,6 +120,59 @@ class TicTacToe extends Sprite {
                 this.dataModel[row][col] = this.emptySquareSymbol;
             }
         }
+        /*gameIsWon() {
+            if (this.board[0][0] === this.board[1][1] &&
+                this.board[1][1] === this.board[2][2] &&
+                this.board[2][2] !== this.emptySquareSymbol
+            ) {
+                return true;
+            }
+            if (this.board[2][0] === this.board[1][1] &&
+                this.board[1][1] === this.board[0][2] &&
+                this.board[0][2] !== this.emptySquareSymbol
+            ) {
+                return true;
+            }
+            if (this.board[0][0] === this.board[0][1] &&
+                this.board[0][1] === this.board[0][2] &&
+                this.board[0][2] !== this.emptySquareSymbol
+            ) {
+                return true;
+            }
+            if (this.board[1][0] === this.board[1][1] &&
+                this.board[1][1] === this.board[1][2] &&
+                this.board[1][2] !== this.emptySquareSymbol
+            ) {
+                return true;
+            }
+            if (this.board[2][0] === this.board[2][1] &&
+                this.board[2][1] === this.board[2][2] &&
+                this.board[2][2] !== this.emptySquareSymbol
+            ) {
+                return true;
+            }
+            if (this.board[0][0] === this.board[1][0] &&
+                this.board[1][0] === this.board[2][0] &&
+                this.board[2][0] !== this.emptySquareSymbol
+            ) {
+                return true;
+            }
+            if (this.board[0][1] === this.board[1][1] &&
+                this.board[1][1] === this.board[2][1] &&
+                this.board[2][1] !== this.emptySquareSymbol
+            ) {
+                return true;
+            }
+            if (this.board[0][2] === this.board[1][2] &&
+                this.board[1][2] === this.board[2][2] &&
+                this.board[2][2] !== this.emptySquareSymbol
+            ) {
+                return true;
+            }
+            return false;
+        }
+        gameIsDrawn() {//NEED TO FIGURE OUT HOW TO DRAW!!!
+        }*/
     }
     debugBoard() {
         let boardString = '\n';
@@ -109,11 +189,26 @@ class TicTacToe extends Sprite {
         console.log('The data model after ' + moveCount + ' move(s):' + boardString);
     }
     takeTurns() {
+        /*if (this.gameIsWon()) {
+            let message = 'Game Over.\n';
+            if (this.activeMarker instanceof PrincessMarker) {
+                message = message + 'The Princess wins.';
+            }
+            else if (this.activeMarker instanceof StrangerMarker) {
+                message = message + 'The Stranger wins.';
+            }
+            game.end(message);
+            return;
+        }
+        if (this.gameIsDrawn()) {
+            game.end('Game Over.\n The game ends in a draw.');
+            return;
+        }*/
         if (!this.activeMarker) {
-            Math.random() > 0.5; {
+            Math.random() <= 0.5; {
                 this.activeMarker = new PrincessMarker(this);
             }
-            Math.random() <= 0.5; {
+            Math.random() > 0.5; {
                 this.activeMarker = new StrangerMarker(this);
             }
         }
