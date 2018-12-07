@@ -70,7 +70,7 @@ class StrangerMarker extends Marker {
             row = Math.round(Math.random() * (this.board.size - 1));
             col = Math.round(Math.random() * (this.board.size - 1));
         } while (this.board.dataModel[row][col] !== this.board.emptySquareSymbol);
-        let foundMove = this.findWinningMove();
+        /*let foundMove = this.findWinningMove();
         if (!foundMove) {
             foundMove = this.findWinningMove(true);
         }
@@ -93,10 +93,10 @@ class StrangerMarker extends Marker {
             foundMove = this.findAnySideMove();
         }
         if (!foundMove) {
-            // Mark a random empty square.
+            foundMove = true;
         }
         if (!foundMove) throw new Error('Failed to find a move.');
-        this.board.takeTurns();
+        this.board.takeTurns();*/
         this.board.dataModel[row][col] = this.squareSymbol;
         this.playInSquare(row, col);
         this.board.takeTurns();
@@ -122,51 +122,51 @@ class TicTacToe extends Sprite {
         }
     }
     gameIsWon() {
-        if (this.board[0][0] === this.board[1][1] &&
-            this.board[1][1] === this.board[2][2] &&
-            this.board[2][2] !== this.emptySquareSymbol
+        if (this.dataModel[0][0] === this.dataModel[1][1] &&
+            this.dataModel[1][1] === this.dataModel[2][2] &&
+            this.dataModel[2][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[2][0] === this.board[1][1] &&
-            this.board[1][1] === this.board[0][2] &&
-            this.board[0][2] !== this.emptySquareSymbol
+        if (this.dataModel[2][0] === this.dataModel[1][1] &&
+            this.dataModel[1][1] === this.dataModel[0][2] &&
+            this.dataModel[0][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[0][0] === this.board[0][1] &&
-            this.board[0][1] === this.board[0][2] &&
-            this.board[0][2] !== this.emptySquareSymbol
+        if (this.dataModel[0][0] === this.dataModel[0][1] &&
+            this.dataModel[0][1] === this.dataModel[0][2] &&
+            this.dataModel[0][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[1][0] === this.board[1][1] &&
-            this.board[1][1] === this.board[1][2] &&
-            this.board[1][2] !== this.emptySquareSymbol
+        if (this.dataModel[1][0] === this.dataModel[1][1] &&
+            this.dataModel[1][1] === this.dataModel[1][2] &&
+            this.dataModel[1][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[2][0] === this.board[2][1] &&
-            this.board[2][1] === this.board[2][2] &&
-            this.board[2][2] !== this.emptySquareSymbol
+        if (this.dataModel[2][0] === this.dataModel[2][1] &&
+            this.dataModel[2][1] === this.dataModel[2][2] &&
+            this.dataModel[2][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[0][0] === this.board[1][0] &&
-            this.board[1][0] === this.board[2][0] &&
-            this.board[2][0] !== this.emptySquareSymbol
+        if (this.dataModel[0][0] === this.dataModel[1][0] &&
+            this.dataModel[1][0] === this.dataModel[2][0] &&
+            this.dataModel[2][0] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[0][1] === this.board[1][1] &&
-            this.board[1][1] === this.board[2][1] &&
-            this.board[2][1] !== this.emptySquareSymbol
+        if (this.dataModel[0][1] === this.dataModel[1][1] &&
+            this.dataModel[1][1] === this.dataModel[2][1] &&
+            this.dataModel[2][1] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[0][2] === this.board[1][2] &&
-            this.board[1][2] === this.board[2][2] &&
-            this.board[2][2] !== this.emptySquareSymbol
+        if (this.dataModel[0][2] === this.dataModel[1][2] &&
+            this.dataModel[1][2] === this.dataModel[2][2] &&
+            this.dataModel[2][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
@@ -201,10 +201,10 @@ class TicTacToe extends Sprite {
             game.end(message);
             return;
         }
-        if (this.gameIsDrawn()) {
+        /*if (this.gameIsDrawn()) {
             game.end('Game Over.\n The game ends in a draw.');
             return;
-        }
+        }*/
         if (!this.activeMarker) {
             Math.random() <= 0.5; {
                 this.activeMarker = new PrincessMarker(this);
