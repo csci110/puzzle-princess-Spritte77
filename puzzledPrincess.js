@@ -122,51 +122,51 @@ class TicTacToe extends Sprite {
         }
     }
     gameIsWon() {
-        if (this.board[0][0] === this.board[1][1] &&
-            this.board[1][1] === this.board[2][2] &&
-            this.board[2][2] !== this.emptySquareSymbol
+        if (this.dataModel[0][0] === this.dataModel[1][1] &&
+            this.dataModel[1][1] === this.dataModel[2][2] &&
+            this.dataModel[2][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[2][0] === this.board[1][1] &&
-            this.board[1][1] === this.board[0][2] &&
-            this.board[0][2] !== this.emptySquareSymbol
+        if (this.dataModel[2][0] === this.dataModel[1][1] &&
+            this.dataModel[1][1] === this.dataModel[0][2] &&
+            this.dataModel[0][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[0][0] === this.board[0][1] &&
-            this.board[0][1] === this.board[0][2] &&
-            this.board[0][2] !== this.emptySquareSymbol
+        if (this.dataModel[0][0] === this.dataModel[0][1] &&
+            this.dataModel[0][1] === this.dataModel[0][2] &&
+            this.dataModel[0][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[1][0] === this.board[1][1] &&
-            this.board[1][1] === this.board[1][2] &&
-            this.board[1][2] !== this.emptySquareSymbol
+        if (this.dataModel[1][0] === this.dataModel[1][1] &&
+            this.dataModel[1][1] === this.dataModel[1][2] &&
+            this.dataModel[1][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[2][0] === this.board[2][1] &&
-            this.board[2][1] === this.board[2][2] &&
-            this.board[2][2] !== this.emptySquareSymbol
+        if (this.dataModel[2][0] === this.dataModel[2][1] &&
+            this.dataModel[2][1] === this.dataModel[2][2] &&
+            this.dataModel[2][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[0][0] === this.board[1][0] &&
-            this.board[1][0] === this.board[2][0] &&
-            this.board[2][0] !== this.emptySquareSymbol
+        if (this.dataModel[0][0] === this.dataModel[1][0] &&
+            this.dataModel[1][0] === this.dataModel[2][0] &&
+            this.dataModel[2][0] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[0][1] === this.board[1][1] &&
-            this.board[1][1] === this.board[2][1] &&
-            this.board[2][1] !== this.emptySquareSymbol
+        if (this.dataModel[0][1] === this.dataModel[1][1] &&
+            this.dataModel[1][1] === this.dataModel[2][1] &&
+            this.dataModel[2][1] !== this.emptySquareSymbol
         ) {
             return true;
         }
-        if (this.board[0][2] === this.board[1][2] &&
-            this.board[1][2] === this.board[2][2] &&
-            this.board[2][2] !== this.emptySquareSymbol
+        if (this.dataModel[0][2] === this.dataModel[1][2] &&
+            this.dataModel[1][2] === this.dataModel[2][2] &&
+            this.dataModel[2][2] !== this.emptySquareSymbol
         ) {
             return true;
         }
